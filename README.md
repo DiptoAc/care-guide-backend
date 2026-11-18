@@ -29,7 +29,7 @@ The seed command refuses to run if an Admin already exists. Never commit real pa
 
 1. Push this folder to its own GitHub repository and create a Render **Web Service** from that repository.
 2. Select Node as the runtime; use `npm ci` for the build command and `npm start` for the start command. The included `render.yaml` can be used as a Blueprint instead.
-3. Set `MONGODB_URI` to a MongoDB Atlas connection string and `CORS_ORIGIN` to the deployed frontend origin.
+3. Set `MONGODB_URI` to a MongoDB Atlas connection string and `CORS_ORIGIN` to the exact frontend origin. For multiple frontends, use a comma-separated list with no trailing slashes, for example `https://your-site.vercel.app,https://your-site.netlify.app`.
 4. Render generates `JWT_SECRET` from the Blueprint configuration. For manual setup, provide a long, random secret.
 5. After deployment, verify `https://<your-service>.onrender.com/api/health`.
 6. To seed the first Admin on a fresh database, run `npm run seed:admin` locally with the production `MONGODB_URI` and temporary `ADMIN_NAME`, `ADMIN_EMAIL`, and `ADMIN_PASSWORD` environment variables. Remove them from the shell afterward.
